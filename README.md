@@ -1,1 +1,1 @@
-# phys325_disc
+## Discussion notes for PHYS325
