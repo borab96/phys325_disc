@@ -1,5 +1,7 @@
 ## Discussion notes for PHYS325
 
+My notes related to the weekly discussion problems
+
 Use .ipynb files to view on github, .html to view locally.
 
 - Week 1: Math review
