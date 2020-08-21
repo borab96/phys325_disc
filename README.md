@@ -1,6 +1,8 @@
 ## Discussion notes for PHYS325
 
-- Week 1: Axiomatics of classical mechanics, Newton and Galileo
+Use .ipynb files to view on github, .html to view locally.
+
+- Week 1: Math review
 - Week 2: Newtonian dynamics 
 - Week 3: Rocket motion, conservative forces, central forces
 - Week 4: Gravitation, orbital motion
