@@ -2,7 +2,7 @@
 
 My notes related to the weekly discussion problems
 
-Use .ipynb files to view on github, .html to view locally.
+Use .ipynb files to view on github, .html to view locally (the pdf doesn't have hyperlinks).
 
 - Week 1: Math review
 - Week 2: Newtonian dynamics 
