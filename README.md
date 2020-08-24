@@ -4,7 +4,7 @@ My notes related to the weekly discussion problems
 
 The jupyter notebooks can viewed directly on github. 
 
-- [Week 1: Math review](https://github.com/borab96/phys325_disc/blob/master/Week1/Week1.pdf)
+- [Week 1: Math review](Week1/Week1.md)
 - Week 2: Newtonian dynamics 
 - Week 3: Rocket motion, conservative forces, central forces
 - Week 4: Gravitation, orbital motion
