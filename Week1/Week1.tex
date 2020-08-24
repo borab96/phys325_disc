@@ -146,7 +146,8 @@
     \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
     % Document parameters
     % Document title
-    \title{Week1}
+    \title{Week1 discussion notes}
+    \author{Bora}
     
     
     
@@ -390,7 +391,9 @@ sum is a function, \(u_i\), of variable \(x\). The notion of a partial
 sum is important here: \[
 \sigma_n(x):=\sum^n_iu_i(x)
 \] Then the infinite sum is \emph{defined} as the limit of infinite
-\(n\), \(\sigma_{n\to \infty}(x)=f(x)\). If this limit exists, the sum
+\(n\), \(\sigma_{n\to \infty}(x)=f(x)\). 
+\begin{tcolorbox}[title=Convergence musings]
+If this limit exists, the sum
 is \emph{convergent}. But how does the existence of this limit depend on
 the variable \(x\)? Well, if it doesn't then the series is said to be
 \emph{uniformly convergent}.
@@ -425,6 +428,7 @@ important for power series).
 \textbf{Uniform convergence is very important to check because it
 implies \(f(x)\) and \(u_i(x)\) are at least continuous and the series
 can be integrated or differentiated term-wise.}
+\end{tcolorbox}
 
 \textbf{1.2} The first note is to remind you about the notion of
 convergence which you should always have in the back of your mind.
@@ -445,7 +449,14 @@ in a useful way. In physics useful will typically mean
 
 Suppose a function is represented by a uniformly convergent series \[
 f(x)=\sum_i^\infty u_i(x) .
-\] on some interval. How do we actually figure out \(u_i(x)\) for a
+\] on some interval. By Taylor's theorem, we know what the $u_i(x)$ are:
+$$
+u_i(x) = \frac{f^{(i)}(a)}{i!}(x-a)^i.
+$$
+
+\begin{tcolorbox}[title=Taylor expansions]
+
+How do we actually figure out \(u_i(x)\) for a
 given \(f(x)\)? Suppose the function is such that I can differentiate it
 as much as I want. Consider \[
 \int_a^xdx_1f^{(n)}(x_1)=f^{(n-1)}(x)-f^{(n-1)}(a)
@@ -454,7 +465,8 @@ as much as I want. Consider \[
 \] Define the LHS to be \(R_n(x)\), the remainder and solve for
 \(f(x)\): \[
 f(x)=f(a)+(x-a)f'(a)+(x-a)^2f''(a)/2!+R_n(x)
-\] The remainder can be thought of as the error incurred by truncating
+\] 
+The remainder can be thought of as the error incurred by truncating
 at order \(n\). The condition for the convergence of a Taylor series to
 the function is simple, we just need \(R_{n\to\infty}=0\). Finally, we
 have as the Taylor expansion: \[
@@ -471,6 +483,10 @@ R_n = \frac{(x-a)^n}{n!} f^{(n)}(\zeta)
 \] for \(\zeta\in[a, x]\). As an exercise, show that this is true. The
 mean value theorem is very useful and you should know how to apply it.
 \end{quote}
+\end{tcolorbox}
+
+
+
 
 The named functions like the exponential, trig functions, logarithm etc.
 are defined by their Taylor expansions around \(a=0\). So, \(\exp(x)\)
@@ -484,7 +500,7 @@ checked for convergence. For coefficients \(a_n\), if \[
 \] the series converges on at least \((-R, R)\) and possibly
 \([-R, R]\). It converges uniformly and absolutely inside
 \((-R+\epsilon, R-\epsilon)\). That is, power series may be term wise
-integrated and differentiated.
+integrated and differentiated inside their interval of convergence.
 \end{quote}
 
 To test your understanding, prove that power series expansions of
@@ -507,7 +523,7 @@ functions are unique. This is an extremely important technical result.
   \]
 \item
   \emph{Inversion}: In algebraic manipulations it might be necessary to
-  invert power series. Typically it's sufficient to brute fore things.
+  invert power series. Typically it's sufficient to brute force things.
   Suppose you're trying to solve \(y = \sum_i^\infty a_i x^i\) for
   \(x\). Because expansions are unique, we know \[
   x=\sum_i b_i y^i\implies x = \sum_{i}b_i \left(\sum_j a_j x^j\right)^i
@@ -606,11 +622,14 @@ field on \(\mathbb R^3\), \[
 \vec F(x,y,z) = a(x,y,z)\hat x+b(x,y,z)\hat y+c(x,y,z)\hat z.
 \] That is, it is a vector valued function
 \(F:\mathbb R^3\to \mathbb R^3\). This function is assumed to be smooth.
-\textgreater{} Here are some fancy words: \emph{A vector field is a
-section of the tangent bundle over some manifold.} I've used the
+
+\begin{tcolorbox}[title=Some fancy geometry words]
+\emph{A vector field is a
+section of the tangent bundle over some manifold.} This is the
 language of differential geometry - you might find MATH 481 to be useful
 if you want to get a better appreciation for the vector calculus you'll
-be doing.
+be doing. 
+\end{tcolorbox}
 
 \textbf{2.3} At the end of the day, we want to study how things change
 so we should think about how to differentiate things. Note first that a
