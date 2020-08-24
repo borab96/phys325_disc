@@ -2,8 +2,6 @@
 
 My notes related to the weekly discussion problems
 
-The jupyter notebooks can viewed directly on github. 
-
 - Week 1: Math review [(pdf)](Week1/Week1.pdf)
 - Week 2: Newtonian dynamics 
 - Week 3: Rocket motion, conservative forces, central forces
