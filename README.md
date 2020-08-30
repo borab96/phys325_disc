@@ -5,7 +5,7 @@ My notes related to the weekly discussion problems.
 > These are intended to be a slightly more formal and higher level (in the abstraction sense) companion to the very concrete discussion problems. 
 
 - Week 1: Math review [(pdf)](Week1/Week1.pdf)
-- Week 2: Newtonian dynamics 
+- Week 2: Newtonian dynamics [(pdf)](Week2/Week2.pdf)
 - Week 3: Rocket motion, conservative forces, central forces
 - Week 4: Gravitation, orbital motion
 - Week 5: Orbital transfers 
