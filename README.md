@@ -6,7 +6,7 @@ My notes related to the weekly discussion problems.
 
 - Week 1: Math review [(pdf)](Week1/Week1.pdf)
 - Week 2: Newtonian dynamics [(pdf)](Week2/Week2.pdf)
-- Week 3: Rocket motion, conservative forces, central forces
+- Week 3: (No discussion) Review of coordinate systems [(pdf)](Week3/Week3.pdf)
 - Week 4: Gravitation, orbital motion
 - Week 5: Orbital transfers 
 - Week 6: --
