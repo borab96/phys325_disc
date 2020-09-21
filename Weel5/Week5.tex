@@ -1,0 +1,155 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{empheq}
+\usepackage{float}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage[most]{tcolorbox}
+
+\newtheorem*{theorem}{Thm}
+\newtheorem*{proposition}{Prop}
+\theoremstyle{definition}
+\newtheorem*{definition}{Defn}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+
+\newtcbox{\mymath}[1][]{%
+    nobeforeafter, math upper, tcbox raise base,
+    enhanced, colframe=blue!30!black,
+    colback=blue!30, boxrule=1pt,
+    #1}
+\title{Orbital motion}
+
+\begin{document}
+
+\maketitle
+
+Recall that a central force leads to dynamics that are invariant under transformations that fix an origin. For bounded trajectories on the plane, the most general solutions are ellipses (not circles). Assume central force motion in this note.
+
+\begin{definition}
+  If $\dot r=0$, $r$ is a turning point. Motion is said to be bounded if
+  $$
+0\leq r_{1}\leq r\leq r_2< \infty
+  $$
+  holds for all $r$ where $r_1$ and $r_2$ are turning points (pericentral and apocentral points respectively). They need not be distinct. An orbit is closed if motion is uniformly periodic.
+\end{definition}
+
+\begin{proposition}
+  Let $v_{1,2}$ be the orbital velocity at the perigee/apogee of a bounded orbit. Then,
+  $$
+  0\leq v_2\leq v\leq v_1<\infty
+  $$
+\end{proposition}
+\begin{proof}
+  
+\end{proof}
+
+
+\begin{proposition}
+  Bounded trajectories are traversed in finite time.
+\end{proposition}
+\begin{proof}
+  Note that the total energy is 
+  $$
+E=\frac{1}{2}m\dot r^2+U_{eff}(q)\implies \frac{dr}{dt}= \sqrt{\frac{2}{m}(E-U_{eff})}
+  $$
+  This is a separable ODE:
+  $$
+\Delta t=\int_{r_1}^{r_2}\frac{dr}{\sqrt{\frac{2}{m}(E-U_{eff}(r))}}<\infty
+  $$
+  by definition if $E-U_{eff}>0$ which is of course true because the kinetic energy is positive.
+\end{proof}
+
+It would be very helpful to derive $r(\phi)$ to be able to plot the trajectories. Recall that the angular momentum is constant in central force motion. That is,
+$$
+L=\dot \phi r^2 = const\implies \frac{d\phi}{dt}=\frac{L}{r^2}
+$$
+Note the chain rule:
+$$
+\frac{d\phi}{dt}=\frac{d\phi}{dr}\frac{dr}{dt}=\frac{d\phi}{dr}\sqrt{\frac{2}{m}(E-U_{eff})}
+$$
+Then,
+$$
+\frac{d\phi}{dr} = \frac{L}{r^2\sqrt{\frac{2}{m}(E-U_{eff})}} 
+$$
+and upon integration
+\begin{empheq}[box=\tcbhighmath]{equation*}
+ \Delta \phi = \int_{r_1}^{r_2} \frac{L dr}{r^2\sqrt{\frac{2}{m}(E-U_{eff})}}
+\end{empheq}
+If $r_1$ and $r_2$ are turning points, this angular difference is that between successive pericentral points. 
+
+\begin{itemize}
+  \item $\Delta \phi=2\pi n\implies r_1=r_2$ so the orbits are circular and hence $\ddot r=0$.
+  \item $\delta \phi = 2\pi \eta$ with $\eta$ a rational number, the orbits are closed.
+  \item if $\eta$ is irrational, the orbits are said to be dense in the annulus with inner radius $r_1$ and outer radius $r_2$. This means that any point in the annular region may be reached by some valid orbit.
+\end{itemize}
+
+ \begin{definition}
+   The `Kepler problem' will refer to the system with effective potential energy
+   $$
+U_{eff}=-\frac{k}{r}+\frac{L^2}{2\mu r^2}
+   $$
+   where $k=GMm>0$ and $\mu$ is the reduced mass. The trajectories are give by the boxed integral above:
+   $$
+\phi(r)= \int_{r_1}^{r_2} \frac{L dr}{r^2\sqrt{\frac{2}{m}\left(E+\frac{k}{r}-\frac{L^2}{2\mu r^2}\right)}} +const=\arccos\left(\frac{\frac{L^2}{\mu k r}-1}{\sqrt{1+\frac{2EL^2}{\mu k^2}}}\right)
+   $$
+   The trajectories are \emph{conic sections}. The eccentricity is defined as
+   $$
+\varepsilon:=\sqrt{1+\frac{2EL^2}{\mu k^2}}
+   $$
+   and the latus rectum is 
+   $$
+2\alpha:=\frac{2L^2}{\mu k}
+   $$
+   Thus,
+   \begin{empheq}[box=\tcbhighmath]{equation*}
+ \varepsilon \cos \phi(r) = \frac{\alpha}{r}-1
+\end{empheq}
+
+ \end{definition}
+
+The turning points are determined by finding the points at which $\dot r=0$. For the Kepler problem this reduces to finding the roots of a quadratic equation:
+  $$
+  0=E+\frac{k}{r}-\frac{L^2}{2\mu r^2}\implies 0= r^2+\frac{rk}{E}-\frac{L^2}{2\mu E}
+  $$ 
+  at a turning point. Then,
+  $$
+r_{1,2}=-\frac{k}{2E}\pm\frac{1}{2}\sqrt{\frac{k^2}{E^2}+\frac{2L^2}{\mu E}}
+  $$
+  The expression on the RHS has at least one real root and no more than two. Thus $r_{1,2}<\infty$.
+
+Let us focus on $0<\varepsilon<1$ where the orbits are elliptical. The semi-major and semi-minor axes are given respectively by
+\begin{align*}
+  a&=\frac{\alpha}{1-\varepsilon^2}, \hspace{2mm} r_{1,2}=a(1\mp \varepsilon)\\
+  b&=\frac{\alpha}{\sqrt{1-\varepsilon^2}}
+\end{align*}
+and crucially
+\begin{empheq}[box=\tcbhighmath]{equation*}
+ E=-\frac{k}{2 a}=\frac{k (1\pm \varepsilon)}{2r_{1,2}}
+\end{empheq}
+This is used to compute various orbital velocities:
+$$
+v_{1,2}^2 = \frac{k(1\pm\varepsilon)+2k}{mr_{1,2}}
+$$
+
+Note here that $E=T+U$ of the two dimensional problem: The orbital velocity $v\neq \dot r$.
+
+Alternatively, since the angular momentum is also a constant of motion, it can be used to determine the orbital velocities. We will take this approach in one of the discussion problems. For convenience, either let $m=1$ or work with energy and momentum densities. We have the following convenient result for the Kepler problem:
+\begin{proposition}
+  Let $l=L/m$. Then, for an elliptic orbit one has
+  \begin{empheq}[box=\tcbhighmath]{equation*}
+\frac{l^2}{r_1}+\frac{l^2}{r_2}=2GM(=const)
+  \end{empheq}
+\end{proposition}
+\end{document}
+
+\begin{empheq}[box=\tcbhighmath]{align*}
+    F_r&=m(\ddot r-r\dot \theta^2-r\dot\phi^2\sin^2\theta)\\
+  F_\theta&=m(2\dot r\dot \theta+r\ddot \theta-r\dot\phi^2\sin\theta\cos\theta)\\
+  F_\phi&=m(r\ddot \phi \sin \theta +2\dot r \dot \phi \sin \theta +2r\dot\theta \dot \phi\cos\theta)
+\end{empheq}
