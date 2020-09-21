@@ -8,7 +8,7 @@ My notes related to the weekly discussion problems.
 - Week 2: Newtonian dynamics [(pdf)](Week2/Week2.pdf)
 - Week 3: (No discussion) Review of coordinate systems [(pdf)](Week3/Week3.pdf)
 - Week 4: Central force motion [(pdf)](Week4/Week4.pdf)
-- Week 5: Orbital transfers 
+- Week 5: Orbital motion [(pdf)](Week5/Week5.pdf)
 - Week 6: --
 - Week 7: SHO
 - Week 8: Resonance, intro to Fourier analysis
