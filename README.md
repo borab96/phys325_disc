@@ -9,9 +9,9 @@ My notes related to the weekly discussion problems.
 - Week 3: (No discussion) Review of coordinate systems [(pdf)](Week3/Week3.pdf)
 - Week 4: Central force motion [(pdf)](Week4/Week4.pdf)
 - Week 5: Orbital motion [(pdf)](Week5/Week5.pdf)
-- Week 6: --
+- Week 6: Stability [(pdf)](Week6/Week6.pdf)
 - Week 7: SHO
-- Week 8: Resonance, intro to Fourier analysis
+- Week 8: Fourier analysis [(pdf)](Week8/Week8.pdf)
 - Week 9: --
 - Week 10: More Fourier analysis and intro to Green functions
 - Week 11: Non-inertial reference frames

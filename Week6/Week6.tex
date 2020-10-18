@@ -1,0 +1,170 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{empheq}
+\usepackage{float}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage[most]{tcolorbox}
+
+\newtheorem*{theorem}{Thm}
+\newtheorem*{proposition}{Prop}
+\theoremstyle{definition}
+\newtheorem*{definition}{Defn}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\theoremstyle{remark}
+\newtheorem*{example}{Example}
+
+
+\newtcbox{\mymath}[1][]{%
+    nobeforeafter, math upper, tcbox raise base,
+    enhanced, colframe=blue!30!black,
+    colback=blue!30, boxrule=1pt,
+    #1}
+\title{Stability of EOM solutions}
+
+
+
+
+\begin{document}
+
+\maketitle
+
+\begin{remark}
+	Nonlinear ODEs typically have multiple solutions. A very common thing one has to get in the habit of thinking about is if particular solutions you found make sense physically. In mathematical terms, this usually means doing a stability analysis of the solutions because Nature tends to realize stable configurations in the space of all possible configurations. 
+\end{remark}
+
+
+\begin{definition}
+	A steady state solution $y_s$ is said to be perturbatively stable if $y(t)\to y_s$ as $t\to \infty$ for $y$ close to $y_s$ (in some quantifiable way that we don't need to rigorously specify). If $y\to y_s$ for any $y$, then $y_s$ is arbitrarily stable.
+
+\end{definition}
+\begin{definition}
+	For an ODE of the form (I'll call this the standard form)
+	$$
+	 y''+ a y'+f(b,y)=0
+	$$
+	where $f$ is a smooth function of its parameters,
+	a point in the space $(b,y)$ is a bifurcation point if the stability of solutions change at that point.
+\end{definition}
+\begin{definition}
+	A solution branch to an ODE of the standard form is a solution to the steady state condition
+	$$
+	f(b,y)=0.
+	$$
+\end{definition}
+
+\begin{proposition}
+	For an ODE of the standard form one must have at a bifurcation point, $(b^\star,y^\star)$, that
+	\begin{empheq}[box=\tcbhighmath]{align*}
+   		f(b^\star,y^\star) &=0\\
+   		\partial_y f(b^\star,y^\star) = 0
+\end{empheq}
+\end{proposition}
+\begin{proof}
+	Fairly direct application of the implicit function theorem. The proof isn't very relevant to the discussion.
+\end{proof}
+
+\begin{proposition}
+	Let $y_s$ be a steady state solution and let $y$ be $\epsilon$-close to $y_s$ at some time $t$. Then, if 
+	$$
+	\partial_y f(b, y_s)>0 
+	$$
+	then $y_s$ is \emph{perturbatively} asymptotically stable. Else, if
+		$$
+	\partial_y f(b, y_s)<0 
+	$$
+	$y_s$ is unstable. 
+\end{proposition}
+\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Linearized stability]
+	\begin{proof}
+	Starting with a solution $\epsilon$-close to a steady state solution is written out as the initial data
+	$$
+y(0)=y_s+\epsilon \kappa_1,\hspace{2mm} y'(0) =  \epsilon \kappa_2
+	$$
+	for some $\kappa_{1,2}\in \mathbb{R}$ and $\epsilon$ small. Hence, it makes sense to consider the deformation
+	$$
+	y(t)\sim y_s+\epsilon y_1(t)
+	$$
+	The ODE becomes 
+	$$
+	y_1''+ay_1'+f(b, y_s+\epsilon y_1(t))=0
+	$$ 
+	By Taylor's theorem, to first order in $\epsilon$ this is
+		$$
+	y_1''+ay_1'+f(b,y_s)+\epsilon \partial_yf(b,y)|_{y_s}=0
+	$$ 
+	with initial data
+	$$
+y_1(0)= \kappa_1,\hspace{2mm}y'(0)=\kappa_2.
+	$$
+	Notice that we have linearized the ODE and we may solve it directly. If $\partial_y f(b,y)|_{y_s}\neq a^2/4$ the solution is
+	$$
+y_1(t)=\alpha e^{\eta_+t}+\beta e^{\eta_- t}
+	$$
+	where 
+	$$
+	\eta_\pm=-\frac{a}{2}\pm\sqrt{\frac{a^2}{4}-\partial_yf(b,y)|_{y_s}}
+	$$
+	Note that $\text{Re}\eta_-$ is always negative if $a>0$. Looking at $\text{Re}\eta_+$ we find that we need
+	  $$
+	\partial_y f(b, y_s)>0 \implies \eta_+<0
+	$$
+	If $\eta_{\pm}<0$ $y_1(t)\to 0$ as $t\to \infty$ and hence $y(t)\to y_s$
+	
+\end{proof}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Example 1]
+	Consider the cubic oscillator ODE
+	$$
+	y''+ay'-b y +y^3 = 0.
+	$$
+	Suppose as $t\to \infty$ $y\to\text{const}$ meaning that a steady state solution exists (this is not always true but is in this case). Then, clearly we have
+	$$
+	by  = y^3
+	$$
+	as $t\to \infty$. This (asymptotic) equality holds for all $b\in\mathbb{R}$ if $y=0$. Otherwise, $y=\pm\sqrt{b}$ if $b>0$. Thus, the steady state solutions are both branches of the square root. Notice that the neighborhood of the point $(y, b)\sim(0,0)$ is common to both branches.
+
+	\vspace{2mm}
+
+	In this case $f_y(b,y_s)=-b+3y_s^2=2b$. Thus, if $b>0$, the $\pm\sqrt{b}$ branches are stable. The $y_s=0$ branch has $f_y(b,0)=-b$ which is unstable for all positive $b$ and stable for all negative $b$. The point $(0,0)$ is the bifurcation point of the three solution branches.
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Example 2]
+	Consider the pendulum EOM
+	$$
+	\ddot \theta+\alpha \sin \theta= 0
+	$$
+	where $\alpha=g/L>0$ with $L$ the length of the string holding the pendulum bob. In equilibrium (steady state) 
+	$$
+\alpha\sin\theta = 0.
+	$$
+For $\theta\in[-\pi,\pi]$, there are three solution branches (which are points in this case):
+$$
+\theta_s \in\{-\pi, 0, \pi\}.
+$$
+Carrying out the stability analysis,
+$$
+f_\theta(\alpha, \theta_s) = \alpha \cos \theta_s=\pm\alpha
+$$
+Thus, $\theta_s = 0$ is stable while the other two configurations are not. That is to say, you don't see inverted pendula in equilibrium (unless you drive the pivot a particular way). 
+
+\end{tcolorbox}
+
+
+
+
+
+\end{document}
+
+\begin{empheq}[box=\tcbhighmath]{align*}
+    F_r&=m(\ddot r-r\dot \theta^2-r\dot\phi^2\sin^2\theta)\\
+  F_\theta&=m(2\dot r\dot \theta+r\ddot \theta-r\dot\phi^2\sin\theta\cos\theta)\\
+  F_\phi&=m(r\ddot \phi \sin \theta +2\dot r \dot \phi \sin \theta +2r\dot\theta \dot \phi\cos\theta)
+\end{empheq}
