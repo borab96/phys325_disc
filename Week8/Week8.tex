@@ -8,7 +8,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amssymb}
 \usepackage[most]{tcolorbox}
-
+\usepackage{hyperref}
 \newtheorem*{theorem}{Thm}
 \newtheorem*{proposition}{Prop}
 \theoremstyle{definition}
@@ -35,13 +35,118 @@
 
 \maketitle
 
-\begin{remark}
+\subsection*{Important aside: Series solutions}
+A general method for solving ODEs (and PDEs) is expanding the solution in a series consistent with the boundary condition and symmetries of the problem. This is called the Frobenius method and is one of the most powerful tools you should have in your mathematical physics toolbox. 
+
+\begin{tcolorbox}[title=Frobenius' method for linear oscillator,breakable]
+	Consider the familiar EOM:
+	$$
+	\ddot y +\omega^2 y = 0
+	$$
+	with solution $y = A \cos\omega t+B\sin\omega t$. Let us develop a power series solution to this very simple problem. Let
+	$$
+	y(t) = t^{\eta}\sum_{i=0}^\infty a_i t^{i}.
+	$$
+	If $\eta \neq 0$ the solution takes values in a fractional polynomial ring - this is a level of generality we almost always need as you will see. We plug this solution into the ODE to obtain
+	\begin{align*}
+		\sum_i a_i(\eta+i)(\eta+i-1)t^{\eta+i-2}+\omega^2\sum_i a_i t^{\eta+i}&=0\\
+		\sum_i a_i(\eta+i)(\eta+i-1)t^{i-2}+\omega^2\sum_i a_i t^{i}&=0\\
+	\end{align*}
+	Let $i=0$. Then, the lowest order expression becomes
+	$$
+	a_0\eta(\eta-1)=0
+	$$
+	If we assert $a_0\neq 0$, 
+	$$
+	\eta(\eta-1)=0\implies \eta=0\text{ or } \eta=1
+	$$
+	Now, for general $i$,
+	$$
+	a_{i+2}(\eta+i+2)(\eta+i+1) +\omega^2 a_i = 0
+	$$
+	is required for the vanishing of the coefficients. Note that I have shifted indices here to match orders of $t$ on both terms. Rearranging, we get the recursion
+	\begin{align*}
+	 	&a_0 \text{ determined from intial data}\\
+		&a_{i+2}=-\frac{\omega^2 a_i}{(i+\eta+2)(\eta+i+1)}	\underset{\eta=0}{\implies} a_{2i}=(-1)^i\frac{\omega^{2i}}{(2i)!}a_0
+	 \end{align*} 
+	 For $\eta=0$ this recurrence gives the Taylor expansion of $a_0\cos \omega t$ as you can check term by term. Letting $\eta=1$ and checking term by term should convince you that the corresponding series is th at of $a_0 \sin \omega t$. Note that these two $a_0$'s are distinct. This method thus gives us two independent solutions. We are guaranteed that no third solution exists so we write
+	 $$
+	 y = A\cos\omega t+B\cos \omega t
+	 $$
+	 We got a little lucky here. This method is guaranteed, under reasonable assumptions, to give at least one independent solution, not both. In this case, the reasonable assumption is that the point $t=0$ we expanded around is a regular point (nothing blows up).
 	
+\end{tcolorbox}
+\begin{remark}
+	Many of the named special functions are series solutions to particular ODEs. For instance, the Bessel functions (of the first kind) solve
+	$$
+	x^2y''+xy'+(x-n^2)y=0
+	$$
+	with
+	$$
+	J_n(x) = \sum_{k=0}\frac{(-1)^k}{k!(n+k)!}\left(\frac{x}{2}\right)^{2k+n}
+	$$
+	See \href{https://mathworld.wolfram.com/BesselFunctionoftheFirstKind.html}{this page}. I would also urge you to familiarize yourself with the \href{hypergeometric function}{hypergeometric function} though you will not come across it at the undergrad level.
+
+	You will see this method used extensively in E\&M and to some extent in QM (we have powerful abstractions that allow us to not worry too much about differential equations in QM).
 \end{remark}
 
+\subsection*{Construction of the Fourier series}
 
+\begin{definition}
+	Let $f$ be a function with a finite number of finite discontinuities and a finite number of extreme in the interval $[0,2\pi]$. Then $f$ is expanded as 
+	$$
+	f(x) = \frac{a_0}{2}+\sum_{n=1}^\infty\left\{a_n \cos nx+b_n\sin nx \right\}
+	$$ 
+\end{definition}
 
+\begin{proposition}
+	Given Fourier series expansion of a function that admits one, the coefficients are 
+	\begin{empheq}[box=\tcbhighmath]{align*}
+   	a_n &= \frac{1}{\pi}\int_{0}^{2\pi} f(\eta) \cos n\eta d\eta, \hspace{2mm}n=0,1,...\\
+   	b_n &= \frac{1}{\pi}\int_{0}^{2\pi} f(\eta) \sin n\eta d\eta, \hspace{2mm}n=1,2,...
+\end{empheq}
+These are proportional ($\times \sqrt{2\pi}$) to what are called the Fourier cosine and sine transforms respectively.
+\end{proposition}
+\begin{proof}
+	Take the Fourier cosine transform of $f$:
+	\begin{align*}
+		\frac{1}{\pi}\int_0^{2\pi}f(\eta)\cos n\eta d\eta &= \\
+		\frac{1}{2\pi}\int_0^{2\pi}a_0 &\cos n\eta d\eta+\sum_{k=1}\frac{1}{\pi}\int_0^{2\pi}a_k\cos k\eta\cos n\eta d\eta+\frac{1}{\pi}\int_0^{2\pi}b_k\sin k\eta\cos n\eta d\eta\\
+		&=0+\sum_{k=1}a_k\delta_{k,n}+0\\
+		&=a_n
+	\end{align*}
+	For $b_n$ take the Fourier sine transform which kills the cosine term in the series. 
+	
+\end{proof}
+\begin{remark}
+	We usually ask Mathematica what Fourier series sum up to.
 
+	If you want to sum up Fourier series by hand you will want to express it in terms of complex exponentials. A trick often employed is to introduce an $r^{k}$ term in the expansion and take $r\to 1$. Without this, it is usually impossible to correctly identify Fourier series with the defining Taylor series of the related function.  
+\end{remark}
+
+\subsection*{Application of Fourier series}
+
+The primary \emph{direct} application of Fourier series in our context is in solving EOMs with periodic boundary conditions and with periodic driving forces. There, the idea goes back to Frobenius' method - The Fourier series is compatible with the time translation symmetry of such EOMs and hence are the natural expansions to use. The linear oscillator which exhibits simple harmonic motion is trivialized, for instance, by expanding the solution in Fourier series instead of a general power series.
+
+Much more generally, the Fourier series is the fundamental idea behind Fourier analysis - We start with expanding periodic functions and generalize to non-periodic functions. The Fourier integrals that go into determining the coefficients become the Fourier transforms of the function:
+
+$$
+F(\omega) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty f(t)e^{i\omega t}dt
+$$   
+
+For linear ODEs the Frobenius method casts the problem as one of arithmetic recursion. Integral transforms like the Fourier transform cast the problem as one of algebra. We're going to need some more machinery (Green functions) to solve interesting EOMs while knowing why we're doing what we're doing. 
+
+For now, note the Green function for the forced harmonic oscillator, $\ddot x+2\zeta \omega_n\dot x+\omega_n^2x=F(t)/m$:
+\begin{tcolorbox}[colframe=red, colback=yellow!30]
+	$$
+|G(\Omega)| = \frac{1}{k}\frac{1}{\sqrt{\left(1-\Omega^2/\omega_n^2\right)^2+\left(2\zeta\Omega/\omega_n\right)^2}}
+$$
+with phase
+$$
+\phi(\Omega) = \tan^{-1}\left(\frac{2\zeta \Omega\omega_n}{\omega_n^2-\omega^2}\right) 
+$$
+The particular solution is obtained by convolving the forcing function with the time domain Green function (more on this later).
+\end{tcolorbox}
 
 \end{document}
 
