@@ -12,9 +12,9 @@ My notes related to the weekly discussion problems.
 - Week 6: Stability [(pdf)](Week6/Week6.pdf)
 - Week 7: SHO
 - Week 8: Fourier analysis [(pdf)](Week8/Week8.pdf)
-- Week 9: --
-- Week 10: More Fourier analysis and intro to Green functions
-- Week 11: Non-inertial reference frames
+- Week 9: Green functions [(pdf)](Week9/Week9.pdf)
+- Week 10: Non-inertial reference frames
+- Week 11: 
 - Week 12: Rigid motion (planar)
 - Week 13: --
 - Week 14: The calculus of variations

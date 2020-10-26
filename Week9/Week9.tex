@@ -1,0 +1,97 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{empheq}
+\usepackage{float}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage[most]{tcolorbox}
+\usepackage{hyperref}
+\newtheorem*{theorem}{Thm}
+\newtheorem*{proposition}{Prop}
+\theoremstyle{definition}
+\newtheorem*{definition}{Defn}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\theoremstyle{remark}
+\newtheorem*{example}{Example}
+
+
+\newtcbox{\mymath}[1][]{%
+    nobeforeafter, math upper, tcbox raise base,
+    enhanced, colframe=blue!30!black,
+    colback=blue!30, boxrule=1pt,
+    #1}
+\title{Green function basics}
+
+
+
+
+\begin{document}
+
+\maketitle
+
+Let $\mathcal L$ be a second order linear differential operator. We want to solve the inhomogeneous problem
+$$
+\mathcal L y(t) = f(t).
+$$
+We can make progress by noting that $\exists G(t, t')$ s.t.
+$$
+\mathcal L G(t, t') = \delta(t-t')
+$$
+That such a $G$ exists is a property of homogeneous second order linear differential equations and is independent of $f$. 
+
+\begin{tcolorbox}
+	Physically, $G(t,t')$ is the response of the system to a singular impulse at $t=t'$.
+
+If the total energy is conserved dynamics are invariant under $t\to t+t_0$. In this case we write
+$$
+G(t,t') = G(t-t');
+$$ 
+the response function depends only on the interval between time $t$ and time of impulse $t'$.
+\end{tcolorbox}
+We have the following fact:
+$$
+\int dt' \mathcal L G(t-t') f(t)  = \mathcal L \left\{\int dt' G(t-t')f(t)\right\} = f(t)
+$$
+where I have used the linearity of $\mathcal L$ to pull it out of the integral. Clearly, 
+$$
+y(t) = \int dt' G(t-t')f(t)
+$$
+is our solution. The solution is the \emph{convolution}
+$$
+y(t) = G(t-t')\star f(t).
+$$
+Then, if $G$ is determined, we have a way of obtaining the solution relatively painlessly. 
+
+For simple problems that you will encounter in this class, the Green function can be determined systematically by Fourier transforming $\mathcal L$ (which renders the differential operator algebraic):
+$$
+ G(\omega) = \frac{1}{\mathcal L_\omega}
+$$ 
+The solution in $\omega$ space is simply the product
+$$
+Y(\omega) = G(\omega)F(\omega).
+$$
+The last step is to look up the inverse Fourier transform of this $Y$.
+
+\begin{tcolorbox}
+	In more complicated boundary value problems a systematic approach is to expand $G$ in a function basis suitable for the geometry of the boundary (or boundaries). If $\mathcal L$ can be diagonalized, this eigenbasis is the suitable basis to construct the Green function. 
+
+	You will learn this more general technique (which is the subject of what is called Fredholm theory) in E\&M and later in quantum field theory.
+\end{tcolorbox}
+
+
+
+\end{document}
+
+\begin{empheq}[box=\tcbhighmath]{align*}
+    F_r&=m(\ddot r-r\dot \theta^2-r\dot\phi^2\sin^2\theta)\\
+  F_\theta&=m(2\dot r\dot \theta+r\ddot \theta-r\dot\phi^2\sin\theta\cos\theta)\\
+  F_\phi&=m(r\ddot \phi \sin \theta +2\dot r \dot \phi \sin \theta +2r\dot\theta \dot \phi\cos\theta)
+\end{empheq}
+
+   
