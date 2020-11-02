@@ -1,0 +1,126 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{empheq}
+\usepackage{float}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage[most]{tcolorbox}
+\usepackage{hyperref}
+\newtheorem*{theorem}{Thm}
+\newtheorem*{proposition}{Prop}
+\theoremstyle{definition}
+\newtheorem*{definition}{Defn}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\theoremstyle{remark}
+\newtheorem*{example}{Example}
+
+
+\newtcbox{\mymath}[1][]{%
+    nobeforeafter, math upper, tcbox raise base,
+    enhanced, colframe=blue!30!black,
+    colback=blue!30, boxrule=1pt,
+    #1}
+\title{Non-intertial motion - Rotating frames}
+
+
+
+
+\begin{document}
+
+\maketitle
+
+We start with noting a direct corollary of one of the axioms of classical mechanics:
+\begin{theorem}
+  Given a motion $\vec x: \mathbb R\to \mathbb R^3$, one can always find a frame in which $\vec F = m\ddot{\vec x}$. Such frames are inertial frames.
+\end{theorem}
+That is, a motion specifies a system of \emph{inertial} forces and vice versa. Note, however, that it is not always easy to work with inertial frames. As an example, try to solve the first discussion problem in inertial coordinates. 
+
+
+\begin{theorem}
+Let $\vec x_{NI}$ be a non-inertial motion. Then, in this non-inertial frame there is an effective system of forces such that
+$$
+\vec F_{eff} = m\ddot{\vec x}_{NI}.
+$$ 
+where $\vec F_{eff} = \vec F_{real}+\vec F_{fake}$. 
+\end{theorem}
+
+\begin{proof}
+  $\vec x_{NI}$ is a trajectory and has the usual nice properties one expects of a solution to a second order ODE. So, (by Picard's theorem), such an  $\vec x_{NI}$ solves \emph{some} second order ODE which we may massage in to the form of Newton's second law. Clearly, the system of forces is not just the physical/real forces as this would contradict the previous theorem. Hence, the given decomposition.
+\end{proof}
+
+Let us specialize to rotating frames and rework this idea more explicitly.
+
+\begin{proposition}
+  Let $x^{(,)}$ denote motion in the (non-)inertial frame which we assume to be rotating. They are related through relation $x'=x+x_0$ ($x_0$ denoting origin of rotating frame). We have infinitesimally
+  $$
+  \dot x' = \dot x +\dot x_0+\omega \times x 
+  $$
+  This is true in general for any vector $\vec x$, not just positions/motion.
+\end{proposition}
+\begin{proof}
+  I'm sure you'll see this result derived in class.
+\end{proof}
+For reference, here is this result expressed more cleanly:
+\begin{empheq}[box=\tcbhighmath]{align*}
+    \vec v_{I} = \vec v_0+\vec v_{NI}+\vec \omega \times \vec x
+\end{empheq}
+$\vec \omega$ is the rotation frequency of the frame.
+
+\begin{theorem}
+  Let $\vec x_{NI}$ be a motion in a rotating frame. Then, in this non-inertial frame there is an effective system of forces such that
+$$
+\vec F_{eff} = m\ddot{\vec x}_{NI}.
+$$ 
+where 
+\begin{empheq}[box=\tcbhighmath]{align*}
+\vec F_{eff} = \vec F_{real}-m\dot v_0-m\dot \omega \times x_{NI}-m\omega \times(\omega \times x_{NI})-2m\omega \times v_{NI}\end{empheq}. 
+\end{theorem}
+
+\begin{proof}
+  Start with $F=m\dot v_{I}$ and carefully differentiate in inertial frame to obtain $F_{fake}$.
+\end{proof}
+
+\begin{remark}
+  Note that we can write $\dot v_0 = \omega \times v_0=\omega \times (\omega\times x_0)$ by our proposition applied twice. 
+\end{remark}
+
+\begin{definition}
+  The force of the form $2m\omega \times v_{NI}$ felt by a rotating observer is the \emph{Coriolis force}. $-m\omega \times(\omega \times x_{NI})$ is the \emph{centrifugal force}. 
+\end{definition}
+
+\begin{tcolorbox}[title=Motion relative to rotating Earth]
+  First, note that the rotation of the Earth about its center is almost constant in time, $\dot \omega =0$. Also note in general that $\vec F_{real}$ is very complicated. We often write $\vec F_{real} = \vec f+m g_{I}$ and we don't worry about the $\vec f$. Then,
+
+  $$
+  F_{eff} = f +mg_{I}-m\dot v_0-m\omega \times(\omega \times x_{NI})-2m\omega \times v_{NI}.
+$$
+We can replace the acceleration of the origin $\dot v_0$ with $\omega \times (\omega\times x_0)$ and get 
+$$
+F_{eff} = f +mg_{I}-m\dot v_0-m\omega \times(\omega \times( x_{NI}+x_0))-2m\omega \times v_{NI}.
+$$ 
+The action of the centrifugal force is usually absorbed into an effective non-inertial gravitational acceleration
+$$
+g_{NI}= g_I - \omega \times(\omega\times(x_{NI}+x_0)).
+$$
+Finally,
+\begin{empheq}[box=\tcbhighmath]{align*}
+F_{eff}=f+mg_{NI}-2m\omega\times v_{NI}
+\end{empheq}
+
+In practice, you will usually only care about the Coriolis part of this expression.
+\end{tcolorbox}
+\end{document}
+
+\begin{empheq}[box=\tcbhighmath]{align*}
+    F_r&=m(\ddot r-r\dot \theta^2-r\dot\phi^2\sin^2\theta)\\
+  F_\theta&=m(2\dot r\dot \theta+r\ddot \theta-r\dot\phi^2\sin\theta\cos\theta)\\
+  F_\phi&=m(r\ddot \phi \sin \theta +2\dot r \dot \phi \sin \theta +2r\dot\theta \dot \phi\cos\theta)
+\end{empheq}
+
+   
