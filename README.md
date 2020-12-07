@@ -13,11 +13,10 @@ My notes related to the weekly discussion problems.
 - Week 7: SHO
 - Week 8: Fourier analysis [(pdf)](Week8/Week8.pdf)
 - Week 9: Green functions [(pdf)](Week9/Week9.pdf)
-- Week 10: Non-inertial reference frames
-- Week 11: 
+- Week 10: Non-inertial reference frames [(pdf)](Week10/Week10.pdf)
+- Week 11: --
 - Week 12: Rigid motion (planar)
-- Week 13: --
-- Week 14: The calculus of variations
-- Week 15: Lagrangian mechanics
-- Week 16: Noether's theorem
+- Week 13: Lagrangian mechanics
+- Week 14: The calculus of variations [(pdf)](Week14/Week14.pdf)
+- (Week 15: Noether's theorem)
 
