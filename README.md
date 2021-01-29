@@ -5,7 +5,7 @@ My notes related to the weekly discussion problems.
 > These are intended to be a slightly more formal and higher level (in the abstraction sense) companion to the very concrete discussion problems. 
 
 - Week 1: Math review [(pdf)](Week1/Week1.pdf)
-- Week 2: Newtonian dynamics [(pdf)](Week2/Week2.pdf)
+- Week 2: Formal development of Newtonian dynamics [(pdf)](Week2/Week2.pdf) (If you're interested in a more mathematical take)
 - Week 3: (No discussion) Review of coordinate systems [(pdf)](Week3/Week3.pdf)
 - Week 4: Central force motion [(pdf)](Week4/Week4.pdf)
 - Week 5: Orbital motion [(pdf)](Week5/Week5.pdf)
