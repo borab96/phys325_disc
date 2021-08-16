@@ -1,5 +1,7 @@
 My notes specific to the weekly discussion problems.
 
+> Disclaimer: The level and scope is not tailored specifically to the course
+
 
 ### 325
 - Week 1: Math review [(pdf)](325/Week1/Week1.pdf)
