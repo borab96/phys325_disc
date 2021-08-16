@@ -1,0 +1,193 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{empheq}
+\usepackage{float}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage[most]{tcolorbox}
+
+\newtheorem*{theorem}{Thm}
+\newtheorem*{proposition}{Prop}
+\theoremstyle{definition}
+\newtheorem*{definition}{Defn}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+
+\newtcbox{\mymath}[1][]{%
+    nobeforeafter, math upper, tcbox raise base,
+    enhanced, colframe=blue!30!black,
+    colback=blue!30, boxrule=1pt,
+    #1}
+\title{Central force motion}
+
+\begin{document}
+
+\maketitle
+
+
+\begin{definition}
+  A force field acting on a point mass is said to be central if the resulting motion is determined is parameterized by a single vector defined relative to a chosen origin. That is, \emph{the resulting motion is invariant with respect to any transformation that fixes the origin}.
+\end{definition}
+
+\begin{remark}
+  It is most natural to choose a spherically symmetric coordinate system to talk about central force motion. The definition, once a coordinate frame is chosen, is if
+$$
+\vec F = F_r\hat r
+$$
+the force is central. Motion in other directions is uniform: $F_\phi=F_\theta=0$ for instance, in spherical coordinates. 
+\end{remark}
+
+\textbf{Let's get some formal details regarding energy out of the way:}
+
+\begin{definition}
+  A vector field, $\vec F$, is said to be conserving if it is the gradient of some scalar field, $U:\mathbb R^3\to\mathbb{R}$:
+$$
+\vec F = -\vec\nabla U
+$$
+\end{definition}
+
+
+
+\begin{proposition}
+  A conserving vector field is curl free.
+\end{proposition}
+
+\begin{proof}
+  Let $\vec F$ be a conserving field. Then
+$$
+\nabla \times \vec F = \nabla \times \nabla U=\epsilon_{ijk}\nabla^j\nabla^k U 
+$$
+where $\epsilon_{ijk}$ is the maximally anti-symmetric tensor. Since $\nabla_i\nabla_j=\nabla_j\nabla_i$ (it is symmetric), the contraction vanishes 
+\end{proof}
+\begin{remark}
+  If you are not familiar with coordinate independent vector calculus, just pick rectangular coordinates and compute the curl of the gradient. It follows that if the curl vanishes in one coordinate system, it vanishes on all of them so there is no loss of generality.
+\end{remark}
+
+\begin{definition}
+  If $\vec F$ is a force field, the associated scalar field, $U$, is the potential energy. The work done by a force in transporting a point mass along curve $\Gamma$ is defined to be
+$$
+W:=\int_\Gamma \vec F\cdot d\vec x
+$$
+If $U=0$, the work done is the kinetic energy, $T$. The total energy is $E=U+T$.
+\end{definition}
+
+\begin{proposition}
+  The kinetic energy is the quadratic form $T=\frac{m}{2}\vec{\dot q}\cdot\vec{\dot q}$.
+\end{proposition}
+
+\begin{proof}
+  \begin{align*}
+    T =\int F\cdot dq&=m\int \ddot q dq\\
+    &= m\int \ddot q \dot q dt\text{ [Chain rule to change integration measure]}\\
+    &=m\dot q^2-m\int \ddot q\dot q\text{ [integrating by parts]}\\
+    2T&=m\dot q^2
+  \end{align*}
+  Thus $T=\frac{m}{2}\dot q^2$
+\end{proof}
+
+\begin{theorem}[Conservation of energy]
+Motion in a conserving force field conserves total energy.  
+\end{theorem}
+\begin{proof}
+  If the force is conserving, the total energy may be written
+  $$
+  E = \frac{m}{2}\dot q^2+U(q).
+  $$
+  Total energy is conserved if $\dot E=0$:
+  $$
+  \dot E = m \dot q\ddot q+\dot q U'(q)
+  $$
+  The first term is $\dot q F$ and the second $-\dot q F$ by definition. Hence the sum vanishes.
+\end{proof}
+
+\begin{proposition}
+  Central forces are always conservative. The EOMS are of the form 
+  $$
+  m\ddot r = -\partial_r U(r)
+  $$
+\end{proposition}
+\begin{proof}
+  A force is central if in spherical coordinates $\vec F =F_r\hat r$. In one dimension, any function can be written as the derivative of another function, so we can always find some $U(r)$ such that $-U'(r)=F_r$.
+\end{proof}
+
+\begin{definition}
+  The angular momentum of a point mass is given by 
+  $$
+  L=m\vec q \times \vec {\dot q}
+  $$
+  In polar coordinates this becomes 
+$$
+L=mr\hat r\times (\hat r \dot r+\dot \theta r \hat \theta)=mr^2\dot \theta(\hat r\times \hat \theta)
+$$
+\end{definition}
+
+\begin{theorem}[Conservation of L] Central force motion conserves angular momentum. 
+  
+\end{theorem}
+\begin{proof}
+  $L_\perp = m\dot \theta r^2$. Then,
+  \begin{align*}
+    \frac{\dot L_\perp}{r}&=m\ddot \theta r+m2\dot r\dot \theta
+  \end{align*}
+  Recall that 
+  $$
+F_\theta=m(2\dot r \dot \theta +r\ddot \theta).
+  $$
+  Noting that the polar motion is uniform, this implies
+  $$
+2\dot r \dot \theta =-r\ddot \theta
+  $$
+  Thus, $\dot L_\perp=0$.
+\end{proof}
+
+
+
+
+\begin{remark}
+  Note that $F_\theta=0$ does not imply $\vec F\cdot \theta=0$ for a central force. That this is the case has an important implication:
+\end{remark}
+
+\begin{theorem}
+  A massive particle in a central force experience the effective potential
+  $$
+U_{eff}(r)=U(r)+\frac{\vec L\cdot \vec L}{2\mu r^2}
+  $$
+  where $\mu=mM/(m+M)$ is the reduced mass if the central force is due to gravitation. 
+\end{theorem}
+\begin{proof}
+  Recall that
+  \begin{align*}
+     F_r&=m(\ddot r-r\dot \theta^2)\\
+  F_\theta&=m(2\dot r\dot \theta+r\ddot \theta)
+  \end{align*}
+  The polar motion is uniform so $\dot L = 0$ by the conservation of angular momentum. We are therefore left with
+  $$
+m(\ddot r-r\dot \theta^2) = -U'(r)
+  $$
+  subject to the conservation constraint
+  $$
+  L_\perp=m\dot \theta r^2=const.
+  $$
+  Then, using the constraint,
+    $$
+m(\ddot r-r\frac{L_\perp^2}{m^2r^4}) = -U'(r)
+  $$
+ which gives
+ $$
+m\ddot r = -U'(r)+r\frac{L_\perp^2}{m r^4}=-U_{eff}'(r)
+ $$
+ Integrating wrt to r on the RHS gives the desired form of the effective potential energy.
+\end{proof}
+
+\end{document}
+
+\begin{empheq}[box=\tcbhighmath]{align*}
+    F_r&=m(\ddot r-r\dot \theta^2-r\dot\phi^2\sin^2\theta)\\
+  F_\theta&=m(2\dot r\dot \theta+r\ddot \theta-r\dot\phi^2\sin\theta\cos\theta)\\
+  F_\phi&=m(r\ddot \phi \sin \theta +2\dot r \dot \phi \sin \theta +2r\dot\theta \dot \phi\cos\theta)
+\end{empheq}

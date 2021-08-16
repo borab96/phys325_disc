@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\title{Coordinate charts}
+
+\begin{document}
+
+\maketitle
+
+\textbf{1.} Motion happens on an embedded (hyper)surface of constraint. A pendulum constrained by an inextensible piece of string moves on a two dimensional sphere of radius given by the length of the string. A mass moving under the gravitational influence of a planet moves on a plane and so on. We need to be able to do calculus on these generally curved surfaces. The way we do that is construct maps from the subsets of these surfaces into Euclidean space where we know how to differentiate and integrate things. These are called coordinate charts. If the surface the motion happens on is $M^n$ (for manifold of dimension $n$), the charts are the maps 
+$$
+\phi :U\subseteq M \to \mathbb R^n 
+$$
+
+We have some freedom in choosing what this map actually does. Without digging too much into the math, let's do an example: Let $\phi$ be the polar coordinate chart and $U$ the right half plane of $\mathbb R^2$ not including the $y$-axis. The map is such that 
+$$
+\phi(x,y) = (r,\theta)=(\sqrt{x^2+y^2}, \arctan \frac{y}{x})
+$$
+Note that I have defined the map in this way. This is the so called polar coordinate system on the plane. It is a mathematical fact that such $\phi$s are invertible. So we also have 
+$$
+(x,y)=(r\cos \theta, r\sin\theta)
+$$
+Thus, a point in the plane, $\vec p\in \mathbb R^2$ can be parameterized by
+$$
+\vec p_{polar} = \sqrt{x^2+y^2}\hat r +\arctan \frac{y}{x} \hat \theta
+$$
+or 
+$$
+\vec p_{rect} = r\cos\theta \hat x+r\sin\theta \hat y
+$$
+
+The unit vectors are related by Jacobians:
+$$
+\begin{aligned}
+\hat r&=\frac{\partial p_{rect}}{\partial r} = (\cos \theta, \sin \theta)\\
+\hat \theta &= \frac{\partial p_{rect}}{\partial \theta}/|\partial_\theta p_{rect}|= (-\sin \theta, \cos \theta)
+\end{aligned}
+$$
+
+\textbf{2.} Unfortunately we have to complicate things. What we really want is a coordinate system around a point on the surface the motion happens on. Since this is an embedded surface, this point has a canonical parameterization in terms of $\hat x$, $\hat y$ and $\hat z$. As the point on the surface moves with time, the ambient rectangular coordinate system does not change. However, the old local coordinate system on the surface is no longer valid - we have to work with the coordinate system around the new point at time $t>t_0$. This is most simply illustrated by uniform counter clockwise circular motion with angular velocity $\omega=\dot \theta$.
+
+$\hat r$ and $\hat \theta$ are a coordinate system for the point on the circle at time $t$. At time $t+\delta t$ the radial unit vector moves $ \delta \theta$ in the $\hat \theta$ direction:
+$$
+\hat r(t+\delta t)=\hat r(t)+\omega \delta t\hat \theta\implies \frac{\hat r(t+\delta)-\hat r(t)}{\delta t}=\omega \hat \theta
+$$
+That is, the radial unit vector rotates with angular velocity $\dot \theta$. Similarly, the polar unit vector rotates with angular velocity $\dot \theta$ but moves in the $-\hat r$ direction. Thus,
+$$
+\begin{aligned}
+\hat {\dot r} &= \dot\theta \hat \theta\\ 
+\hat{\dot \theta} &= -\dot \theta \hat r
+\end{aligned}
+$$
+
+\end{document}
