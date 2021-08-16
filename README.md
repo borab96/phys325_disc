@@ -1,8 +1,4 @@
-## Discussion notes for PHYS325 and PHYS326 | Classical Mechanics
-
-
-
-> These are intended to be a slightly more formal and higher level companion to the discussion problems. 
+My notes specific to the weekly discussion problems.
 
 
 ### 325
