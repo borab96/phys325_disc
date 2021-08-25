@@ -33,8 +33,8 @@
 
 Things to recall:
 \begin{itemize}
-  \item $E=T+U$, the total energy, is a constant of motion (in closed mechanical systems). The dynamical data under this constaint is encoded in $\dot E=0$.
-  \begin{example}[Simple pendulum] We have the total energy $\frac{1}{2}m l^2\dot \theta^2-mgl\cos\theta$. The constancy of this quantitiy implies
+  \item $E=T+U$, the total energy, is a constant of motion (in closed mechanical systems). The dynamical data under this constraint is encoded in $\dot E=0$.
+  \begin{example}[Simple pendulum] We have the total energy $\frac{1}{2}m l^2\dot \theta^2-mgl\cos\theta$. The constancy of this quantity implies
     $$
     \dot E =0 \implies ml^2 \ddot \theta\dot\theta+ mgl \sin \theta \dot \theta = 0
     $$
@@ -63,6 +63,51 @@ Things to recall:
   U_{\text{your system}} = U_{SHO}+\mathcal O(q^3)
   $$
 \end{itemize}
+
+\subsection*{Binary oscillator}
+
+Consider $N$ \emph{linearly} coupled bodies with Lagrangian
+$$
+\frac{1}{2}\sum_i^N \dot x_i^2 m_i - \frac{1}{2}\sum_{i,j}^N k_{ij}(x_i-x_j)^2.
+$$
+We have a notion of "$F=ma$" though in matrix form (tensorial if you want to be more precise):
+\begin{equation}\label{eq:EOM}
+M_{ij}\partial_t^2x_j = -K_{ij}x_j
+\end{equation}
+where the mass matrix entries are given by
+$$
+M_{ij} = \frac{\partial^2 T}{\partial\dot x_i\partial x_j}
+$$
+and correspondingly the matrix entries of the stiffness 
+$$
+K_{ij} = \frac{\partial^2 V}{\partial\dot x_i\partial x_j}.
+$$
+You might imagine $K_{ij}$ to be read as the stiffness of the spring coupling degrees of freedom $i$ and $j$. Keep in mind, however, that this intuition is basis dependent. 
+
+Since our EOM (Eq.~\ref{eq:EOM}) is linear, we can go ahead and Fourier transform:
+ $$
+ -M_{ij}\omega^2x_j(\omega) = -K_{ij}x_j(\omega)\implies (M_{ij}\omega^2-K_{ij})x_{j}(\omega)=0
+ $$
+ Here is a theorem you will come across in liner algebra:
+\begin{theorem}
+The following are equivalent
+\begin{enumerate}
+  \item $\dim\text{Ker} (M_{ij}\omega^2-K_{ij})>0$
+  \item $\det (M_{ij}\omega^2-K_{ij})=0$
+\end{enumerate}
+\end{theorem}
+This tells you that motion will be \emph{non trivial} only if $\det (M_{ij}\omega^2-K_{ij})=0$ so we must find $\omega$s that satisfy this equation. In practice, you will be able to construct these $\mathbf K$ and $\mathbf M$ matrices explicitly.
+
+\subsubsection*{Formal details}
+
+In my more general example, I proceed like so:
+
+First, assume $\mathbf M$ is diagonal, as it almost always is, and write $M_{ij}=m_j\delta_{ij}=m_i$. Let us take $\Lambda$ to the matrix of ordered and orthonormalized eigenvectors of $\mathbf K$. Then, recalling that $\det \mathbf A = \prod_i \text{Eigenvalues}(A)_i$
+\begin{align*}
+  \prod_{i}(\omega^2m_i -(\mathbf\Lambda\cdot \mathbf K\mathbf\Lambda^T)_{ii})=0
+\end{align*}
+Thus, opereationally, we just need to diagonalize the stiffness matrix to deterimin the $\omega$'s.
+
 
 \end{document}
 
