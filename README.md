@@ -27,5 +27,6 @@ Additional notes:
 
 ### 326
 - Week 1: Review and coupled oscillations [(pdf)](326/Week1/Week1.pdf)
-- Week 2: More coupled oscillations [(pdf)](326/Week2/Week2.pdf)
+- Week 2-4: More coupled oscillations [(pdf)](326/Week2/Week2.pdf)
+- Week 5: Chaos [(ipynb)](326/Week5/chaos_notes.html)
 
