@@ -19,14 +19,16 @@ My notes specific to the weekly discussion problems.
 - Week 13: Lagrangian mechanics
 - Week 14: The calculus of variations [(pdf)](325/Week14/Week14.pdf)
 
-Additional notes:
+
+
+### 326
+- Review and coupled oscillations [(pdf)](326/Week1/Week1.pdf)
+- More coupled oscillations [(pdf)](326/Week2/Week2.pdf)
+- Chaos [(ipynb)](326/Week5/chaos_notes.html)
+
+### Additional notes:
 
 - Formal development of Newtonian dynamics [(pdf)](325/Week2/Week2.pdf) 
 - More Green functions 
 - Noether's theorem
-
-### 326
-- Week 1: Review and coupled oscillations [(pdf)](326/Week1/Week1.pdf)
-- Week 2-4: More coupled oscillations [(pdf)](326/Week2/Week2.pdf)
-- Week 5: Chaos [(ipynb)](326/Week5/chaos_notes.html)
-
+- Hamilton-Jacobi theory, geometric development of classical mechanics (in progress) [(html)](326/Extra/hamilton_jacobi.html)
