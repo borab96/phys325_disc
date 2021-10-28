@@ -65,12 +65,12 @@ $$
 \end{aligned}
 $$
 This is the Poisson bracket. Formally,
- > A Poisson bracket on manifold $P$ is the skew symmetric bilinear form $$ \{\cdot, \cdot\}:C^{\infty}(P)\times C^\infty (P) \to C^\infty (P)$$ satisfying the Jacobi identity (it's a bracket) and Leibniz rule (it's a derivation).
+ > A Poisson bracket on manifold $P$ is the skew symmetric bilinear form $$\{\cdot, \cdot\}:C^{\infty}(P)\times C^\infty (P) \to C^\infty (P)$$ satisfying the Jacobi identity (it's a bracket) and Leibniz rule (it's a derivation).
 
 
 It is an extension of the symplectic structure in the following sense:
 
-> Let $\Phi$ and $\Psi$ be two unique vector fields associated to maps $f,g:\mathbb R^{6n}\to\mathbb R$, Then, $$ \{f, g\}_\omega = \omega(\Phi, \Psi)$$ is a Poisson bracket.
+> Let $\Phi$ and $\Psi$ be two unique vector fields associated to maps $f,g:\mathbb R^{6n}\to\mathbb R$, Then, $$\{f, g\}_\omega = \omega(\Phi, \Psi)$$ is a Poisson bracket.
 
 ### Constants of motion
 
