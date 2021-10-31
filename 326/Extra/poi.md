@@ -26,7 +26,7 @@ $$\{f, p\}=-\partial_q f$$
 
 ---
 
-## 1 Algebra of 3 dimensional rotations.
+## Algebra of 3 dimensional rotations.
 
 Let's show that $\vec L : = \vec r\times \vec v$ is a constant of motion (by brute force computation) if any two components of the vector are constants of motion. We are going to need the following angular momentum components:
 $$
@@ -95,6 +95,8 @@ $$
 \end{aligned}
 $$
 > If two components of angular momentum are conserved, the third component and hence the whole vector is conserved. This structure is called the algebra of three dimensional rotations, or, more formally, the special orthogonal Lie algebra of three generators (the $L_i$'s), $\mathfrak{so}(3)$. You will learn more about this algebraic (and geometric) structure later. 
+
+## Quadratic Casimir ($L^2$)
 
 Now let's take a look at $\{L^2, L_i\}$. Notice that this is 
 $$
