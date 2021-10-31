@@ -25,6 +25,7 @@ My notes specific to the weekly discussion problems.
 - Review and coupled oscillations [(pdf)](326/Week1/Week1.pdf)
 - More coupled oscillations [(pdf)](326/Week2/Week2.pdf)
 - Chaos [(ipynb)](326/Week5/chaos_notes.html)
+- [Poisson brackets](326/Extra/poi.html)
 
 ### Additional notes:
 
