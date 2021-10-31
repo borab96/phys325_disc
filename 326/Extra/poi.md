@@ -2,10 +2,11 @@
 
 (Without having to manipulate the Levi-Civita symbol)
 
-  - [1 Algebra of 3 dimensional rotations.](#1-algebra-of-3-dimensional-rotations)
+  - [Algebra of 3 dimensional rotations.](#algebra-of-3-dimensional-rotations)
     - [Case I: $\{L_x, L_y\}$](#case-i-l_x-l_y)
     - [Case II: $\{L_x, L_z\}$](#case-ii-l_x-l_z)
     - [Case III: $\{L_y, L_z\}$](#case-iii-l_y-l_z)
+  - [Quadratic Casimir ($L^2$)](#quadratic-casimir-l2)
     - [Case I: $i\equiv x$](#case-i-iequiv-x)
     - [Case II: $i\equiv y$](#case-ii-iequiv-y)
     - [Case III: $i\equiv z$](#case-iii-iequiv-z)
