@@ -95,7 +95,8 @@ $$
 &= L_x
 \end{aligned}
 $$
-> If two components of angular momentum are conserved, the third component and hence the whole vector is conserved. This structure is called the algebra of three dimensional rotations, or, more formally, the special orthogonal Lie algebra of three generators (the $L_i$'s), $\mathfrak{so}(3)$. You will learn more about this algebraic (and geometric) structure later. 
+> If two components of angular momentum are conserved, the third component and hence the whole vector is conserved. This structure is called the algebra of three dimensional rotations, or, more formally, the special orthogonal Lie algebra of three generators (the $L_i$'s), $\mathfrak{so}(3)$. It is defined by the relation $$\{L_i, L_j\} = \varepsilon^{ijk}L_k$$,
+> where $\varepsilon^{ijk}$ is the maximally anti-symmetric/Levi-Civita symbol. You will learn more about this algebraic (and geometric) structure later. 
 
 ## Quadratic Casimir ($L^2$)
 
