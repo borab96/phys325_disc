@@ -1,5 +1,19 @@
 # Poisson brackets and angular momentum
 
+(Without having to manipulate the Levi-Civita symbol)
+
+  - [1 Algebra of 3 dimensional rotations.](#1-algebra-of-3-dimensional-rotations)
+    - [Case I: $\{L_x, L_y\}$](#case-i-l_x-l_y)
+    - [Case II: $\{L_x, L_z\}$](#case-ii-l_x-l_z)
+    - [Case III: $\{L_y, L_z\}$](#case-iii-l_y-l_z)
+    - [Case I: $i\equiv x$](#case-i-iequiv-x)
+    - [Case II: $i\equiv y$](#case-ii-iequiv-y)
+    - [Case III: $i\equiv z$](#case-iii-iequiv-z)
+  - [Angular momentum - energy brackets](#angular-momentum---energy-brackets)
+    - [Spherical symmetry](#spherical-symmetry)
+    - [Planar rotational symmetry](#planar-rotational-symmetry)
+
+
 ---
 $$ \dot q = \frac{\partial H}{\partial p}, \quad \dot p = -\frac{\partial H}{\partial q}$$
 $$\{f, g\} = \frac{\partial f}{\partial q}\frac{\partial g}{\partial p} - \frac{\partial f}{\partial p}\frac{\partial g}{\partial q}$$
