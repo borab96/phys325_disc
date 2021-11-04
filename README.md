@@ -26,6 +26,7 @@ My notes specific to the weekly discussion problems.
 - More coupled oscillations [(pdf)](326/Week2/Week2.pdf)
 - Chaos [(ipynb)](326/Week5/chaos_notes.html)
 - [Poisson brackets](326/Extra/poi.html)
+- [Classical field theory](326\Week12\classical_field_theory.html)
 
 ### Additional notes:
 
