@@ -27,6 +27,7 @@ My notes specific to the weekly discussion problems.
 - Chaos [(ipynb)](326/Week5/chaos_notes.html)
 - [Poisson brackets](326/Extra/poi.html)
 - [Classical field theory](326\Week12\classical_field_theory.html)
+- [Deformations of solids](326\Week12\deformations.html)
 
 ### Additional notes:
 
